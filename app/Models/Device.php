@@ -13,7 +13,7 @@ class Device extends Model
         'category_id',
         'brand_id',
         'title',
-        'slag',
+        'slug',
         'image',
         'price',
         'meta_title',
@@ -43,5 +43,15 @@ class Device extends Model
     }
     public function videos(){
         return $this->hasMany('App\Models\Videos');
+    }
+    public function getMetaKeywords(){
+        if($this->meta_keywords==null){
+            return '';
+        }
+        // dd(implode(',',json_decode($this->meta_keywords)));
+        return implode(',',json_decode($this->meta_keywords));
+    }
+    public function getJsonString($col){
+        return str_replace('\\"','\\\"',$this->{$col});
     }
 }

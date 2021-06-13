@@ -43,7 +43,7 @@
                 <div class="col-md-10">
                     <div class="box" style="margin: 10px 0px">
                         <div class="box-header">
-                            <label>Cover Position 1 Attributes, <a target="_blank" href="https://getbootstrap.com/docs/3.4/components/#glyphicons">Icons</a> list</label>
+                            <label>Cover Position 1 Attributes, <a target="_blank" href="https://icofont.com/icons">Icons</a> list</label>
                         </div>
                         <div class="box-body">
                             <div id="output_cover_1"></div>
@@ -56,7 +56,7 @@
                 <div class="col-md-10">
                     <div class="box" style="margin: 10px 0px">
                         <div class="box-header">
-                            <label>Cover Position 2 Attributes, <a target="_blank" href="https://getbootstrap.com/docs/3.4/components/#glyphicons">Icons</a> list</label>
+                            <label>Cover Position 2 Attributes, <a target="_blank" href="https://icofont.com/icons">Icons</a> list</label>
                         </div>
                         <div class="box-body">
                             <div id="output_cover_2"></div>
