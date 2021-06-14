@@ -39,7 +39,7 @@ class Device extends Model
         return $this->hasMany('App\Models\Opinion');
     }
     public function deviceImages(){
-        return $this->hasMany('App\Models\DiviceImage');
+        return $this->hasMany('App\Models\DeviceImage');
     }
     public function videos(){
         return $this->hasMany('App\Models\Videos');

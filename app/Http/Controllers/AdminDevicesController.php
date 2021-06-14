@@ -4,10 +4,13 @@
 	use Request;
 	use DB;
 	use CRUDBooster;
+	use Storage;
 
 	use App\Models\Brand;
 	use App\Models\Category;
 	use App\Models\Device;
+	use App\Models\DeviceImage;
+	use Illuminate\Support\Str;
 
 	class AdminDevicesController extends \crocodicstudio\crudbooster\controllers\CBController {
 
@@ -104,7 +107,13 @@
 	        | @showIf 	   = If condition when action show. Use field alias. e.g : [id] == 1
 	        | 
 	        */
-	        $this->addaction = array();
+	        $this->addaction = array([
+				'label'=>'images',
+				'url' =>CRUDBooster::mainpath("upload-photo/[id]"),
+				'icon'=>'fa fa-image',
+				'color'=>'primary',
+
+			]);
 
 
 	        /* 
@@ -302,7 +311,49 @@
 		}
 
 		public function getUploadPhoto($id){
-			dd($id);
+			// dd($id);
+			$page_title="Upload Image";
+			$device=Device::findOrFail($id);
+			return view('admin.device.upload_image',compact('device','page_title'));
+		}
+		public function postUploadImage(){
+			// dd(request());
+			$request=request();
+			// $request->validate([
+			// 	'main_image' => 'required',
+			//   ]);
+			$device=Device::findOrFail($request->id);
+			// dd();
+			if($request->file('main_image')){
+				$ext=$request->file('main_image')->extension();
+				$path= $request->file('main_image')->storeAs("public","device_images/".$device->id."/".$device->slug."-".Str::random(4).".".$ext);
+			}
+			// dd($path);
+			$device->image=str_replace("public/","storage/",$path);
+			$device->save();
+			if($request->file('images')){
+				foreach($request->file('images') as $img){
+					$ext=$img->extension();
+					$path= $img->storeAs("public","device_images/".$device->id."/".$device->slug."-".Str::random(5).".".$ext);
+					$device->deviceImages()->create([
+						'path'=>str_replace("public/","storage/",$path)
+					]);
+				}
+			}
+			return redirect()->back();
+		}
+		public function getDeleteMainImage($id){
+			$device=Device::findOrFail($id);
+			Storage::delete(str_replace("storage","public",$device->image));
+			$device->image=null;
+			$device->save();
+			return redirect()->back();
+		}
+		public function getDeleteDeviceImage($id){
+			$deviceImage=DeviceImage::findOrFail($id);
+			Storage::delete(str_replace("storage","public",$deviceImage->path));
+			$deviceImage->delete();
+			return redirect()->back();
 		}
 	    /*
 	    | ---------------------------------------------------------------------- 

@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class DeviceImage extends Model
 {
     use HasFactory;
-    protected $fillable=['device_id','device_path'];
+    protected $fillable=['device_id','path'];
 }
