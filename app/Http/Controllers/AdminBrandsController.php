@@ -73,7 +73,8 @@
 			| @parent_columns = Sparate with comma, e.g : name,created_at
 	        | 
 	        */
-	        $this->sub_module = array();
+	        // $this->sub_module = array();
+			$this->sub_module[] = ['label'=>'Devices','path'=>'devices','parent_columns'=>'title,slug','foreign_key'=>'brand_id','button_color'=>'success','button_icon'=>'fa fa-bars'];
 
 
 	        /* 

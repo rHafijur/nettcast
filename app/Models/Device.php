@@ -44,6 +44,9 @@ class Device extends Model
     public function videos(){
         return $this->hasMany('App\Models\Videos');
     }
+    public function review(){
+        return $this->hasOne('App\Models\Review');
+    }
     public function getMetaKeywords(){
         if($this->meta_keywords==null){
             return '';

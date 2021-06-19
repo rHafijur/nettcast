@@ -108,12 +108,20 @@
 	        | 
 	        */
 	        $this->addaction = array([
-				'label'=>'images',
+				'label'=>'Images',
 				'url' =>CRUDBooster::mainpath("upload-photo/[id]"),
 				'icon'=>'fa fa-image',
 				'color'=>'primary',
 
-			]);
+			],
+			[
+				'label'=>'Review',
+				'url' =>CRUDBooster::mainpath("review/[id]"),
+				'icon'=>'fa fa-comments',
+				'color'=>'success',
+
+			]
+		);
 
 
 	        /* 
@@ -353,6 +361,121 @@
 			$deviceImage=DeviceImage::findOrFail($id);
 			Storage::delete(str_replace("storage","public",$deviceImage->path));
 			$deviceImage->delete();
+			return redirect()->back();
+		}
+		public function getReview($id){
+			$device=Device::findOrFail($id);
+			$page_title="Device Review - ".$device->title;
+			return view('admin.device.review',compact('device','page_title'));
+		}
+
+
+		private function uploadFile($name, $encrypt = false, $resize_width = null, $resize_height = null, $id = null)
+		{
+			if (Request::hasFile($name)) {
+				$file = Request::file($name);
+				$ext = $file->getClientOriginalExtension();
+				$filename = str_slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
+				if(method_exists($file, 'getClientSize')) {
+					$filesize = $file->getClientSize() / 1024;
+				} else {
+					$filesize = $file->getSize() / 1024;
+				}
+				$device=Device::findOrFail($id);
+				$file_path = "public/device_images/".$device->id;
+	
+				//Create Directory Monthly
+				Storage::makeDirectory($file_path);
+	
+				if ($encrypt == true) {
+					$filename = md5(str_random(5)).'.'.$ext;
+				} else {
+					$filename = $device->slug."-".Str::random(5).'.'.$ext;
+				}
+	
+				if (Storage::putFileAs($file_path, $file, $filename)) {
+					// self::resizeImage($file_path.'/'.$filename, $resize_width, $resize_height);
+	
+					return str_replace("public/","storage/",$file_path.'/'.$filename);
+				} else {
+					return null;
+				}
+			} else {
+				return null;
+			}
+		}
+
+		public function postCustomUploadSummernote()
+		{
+			$this->cbLoader();
+			$name = 'userfile';
+			$id=request()->id;
+			if ($file = $this->uploadFile($name,false,null,null,$id)) {
+				echo asset($file);
+			}
+		}
+		public function postSaveReview(){
+			$request = request();
+			// dd($request);
+			$device=Device::findOrFail($request->id);
+			$img=$request->file('thumbnail');
+			$review=$device->review;
+			$thumbnail_path=null;
+			if($review->thumbnail){
+				$thumbnail_path=$review->thumbnail;
+			}
+			if($img){
+				$ext=$img->extension();
+				$thumbnail= $img->storeAs("public","device_images/".$device->id."/".$device->slug."-".Str::random(5).".".$ext);
+				$thumbnail_path=str_replace("public/","storage/",$thumbnail);
+			}
+			
+			$audio=$request->file('audio');
+			$audio_path=null;
+			if($review->audio_path){
+				$audio_path=$review->audio_path;
+			}
+			if($audio){
+				$ext=$audio->extension();
+				$audio_path= $audio->storeAs("public","device_audios/".$device->id."/".$device->slug."-".Str::random(5).".".$ext);
+				$audio_path=str_replace("public/","storage/",$audio_path);
+			}
+			$tags=[];
+			if($request->meta_keywords){
+				$tags=explode(",",$request->meta_keywords);
+			}
+			$bodySections=[];
+			foreach($request->body as $key=> $section){
+				if($section!="<p><br></p>"){
+					$bodySections[$key]=$section;
+				}
+			}
+			if($review){
+				$review->update([
+					"title"=>$request->title,
+					"slug"=>$request->slug,
+					"thumbnail"=>$thumbnail_path,
+					"audio_path"=>$audio_path,
+					"meta_title"=>$request->meta_title,
+					"meta_description"=>$request->meta_description,
+					"meta_keywords"=>json_encode($tags),
+					"video_url"=>$request->video_url,
+					"body"=>json_encode($bodySections),
+				]);
+			}else{
+
+				$device->review()->create([
+					"title"=>$request->title,
+					"slug"=>$request->slug,
+					"thumbnail"=>$thumbnail_path,
+					"audio_path"=>$audio_path,
+					"meta_title"=>$request->meta_title,
+					"meta_description"=>$request->meta_description,
+					"meta_keywords"=>json_encode($tags),
+					"video_url"=>$request->video_url,
+					"body"=>json_encode($bodySections),
+				]);
+			}
 			return redirect()->back();
 		}
 	    /*

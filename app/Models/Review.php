@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     use HasFactory;
-    protected $fillable=['device_id','title','slag','thumbnail','audio_path','meta_title','meta_description','meta_keywords','body','video_url','view_count'];
+    protected $fillable=['device_id','title','slug','thumbnail','audio_path','meta_title','meta_description','meta_keywords','body','video_url','view_count'];
 
     public function device(){
         return $this->belongsTo('App\Models\Device');
@@ -17,5 +17,12 @@ class Review extends Model
     public function comments()
     {
         return $this->morphMany('App\Comment', 'commentable');
+    }
+    public function getMetaKeywords(){
+        if($this->meta_keywords==null){
+            return '';
+        }
+        // dd(implode(',',json_decode($this->meta_keywords)));
+        return implode(',',json_decode($this->meta_keywords));
     }
 }

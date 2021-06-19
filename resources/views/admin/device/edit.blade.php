@@ -111,7 +111,7 @@
                 <div class="col-md-12">
                     <div class="input-group">
                         <label>Price</label>
-                        <input type="number" value="{{$device->price}}" class="form-control" id="inp_price">
+                        <input type="text" value="{{$device->price}}" class="form-control" id="inp_price">
                     </div>
                 </div>
             </div>
