@@ -9,7 +9,7 @@ class Brand extends Model
 {
     use HasFactory;
 
-    protected $fillable=['title','logo','overview','origin','ceo','headquarters','est'];
+    protected $fillable=['title','logo','overview','origin','ceo','headquarters','est','priority'];
 
     public function categories(){
         return $this->belongsToMany('App\Models\Category','brand_categories','brand_id','category_id');

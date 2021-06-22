@@ -4,6 +4,7 @@
 	use Request;
 	use DB;
 	use CRUDBooster;
+	use App\Models\Brand;
 
 	class AdminBrandsController extends \crocodicstudio\crudbooster\controllers\CBController {
 
@@ -236,6 +237,22 @@
 	        //Your code here
 	            
 	    }
+
+		public function getSort(){
+			$page_title="Reorder Brands";
+			$brands=Brand::orderBy('priority','asc')->get();
+			return view('admin.brand.sort',compact('page_title','brands'));
+		}
+		public function postSort(){
+			$ids=request()->ids;
+			$i=0;
+			foreach($ids as $id){
+				Brand::find($id)->update(['priority'=>++$i]);
+				
+			}
+			return true;
+			// dd();
+		}
 
 
 	    /*

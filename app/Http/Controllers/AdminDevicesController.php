@@ -277,6 +277,8 @@
 			}else{
 				$mk=null;
 			}
+			$category=Category::findOrFail($request->category_id);
+			$category->brands()->syncWithoutDetaching([$request->brand_id]);
 			$id=Device::create([
 				'user_id' => CRUDBooster::myId(),
 				'title' => $request->title,
