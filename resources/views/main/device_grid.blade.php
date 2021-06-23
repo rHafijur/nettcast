@@ -29,7 +29,7 @@
                 }
             </script>
             <div class="content-panel-title">
-                <span class="active" onclick="hideAll()" id="hide"><strong>Samsung</strong></span>
+                <span class="active" onclick="hideAll()" id="hide"><strong>{{$brand->title}}</strong></span>
                 <span onclick="showAll()" id="show"><strong>Compare</strong></span>
                 <i></i>
             </div>
@@ -90,7 +90,11 @@
                 <div class="card">
                     <a href="{{route('device.details',['category_slug'=>$category->slug,'brand_title'=>$device->brand->title,'device_slug'=>$device->slug,'device_id'=>$device->id])}}">
                         <input type="checkbox" class="larger" style="display: none;">
-                        <img src="images/samsung-galaxy-a72-4g.jpg" alt="">
+                        {{-- <img src="{{asset($device->image)}}" alt=""> --}}
+                        <img src="{{asset("/storage/device_images/".strtolower($device->slug).".jpg")}}" alt="">
+                        {{-- <img src="https://fdn2.gsmarena.com/vv/bigpic/{{strtolower($device->slug).".jpg"}}" alt="">
+                        <img src="https://www.gsmarena.com.bd/images/products/{{strtolower($device->slug).".jpg"}}" alt=""> --}}
+                        
                         <h2 style="text-align: center; padding: 10px;">{{$device->title}}</h2>
                         <p style="text-align: justify;padding: 10px; background-color: #444444;">Lorem ipsum dolor sit amet .
                             Lorem ipsum dolor sit amet . </p>

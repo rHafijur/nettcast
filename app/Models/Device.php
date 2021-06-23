@@ -23,7 +23,8 @@ class Device extends Model
         'cover_specifications_1',
         'cover_specifications_2',
         'view_count',
-        'affilate_links'
+        'affilate_links',
+        'is_active'
     ];
 
     public function brand(){

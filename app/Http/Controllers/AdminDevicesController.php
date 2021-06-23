@@ -41,6 +41,7 @@
 			$this->col[] = ["label"=>"Slug","name"=>"slug"];
 			$this->col[] = ["label"=>"Image","name"=>"image","image"=>true];
 			$this->col[] = ["label"=>"Price","name"=>"price"];
+			// $this->col[] = ["label"=>"Status","name"=>"is_active"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -120,6 +121,20 @@
 				'icon'=>'fa fa-comments',
 				'color'=>'success',
 
+			],
+			[
+				'label'=>'Deactivate',
+				'url' =>CRUDBooster::mainpath("deactivate/[id]"),
+				'icon'=>'fa fa-skull-crossbones',
+				'color'=>'danger',
+				"showIf"=>"[is_active] == 1"
+			],
+			[
+				'label'=>'Activate',
+				'url' =>CRUDBooster::mainpath("activate/[id]"),
+				'icon'=>'fa fa-check',
+				'color'=>'succecss',
+				"showIf"=>"[is_active]==0"
 			]
 		);
 
@@ -478,6 +493,19 @@
 					"body"=>json_encode($bodySections),
 				]);
 			}
+			return redirect()->back();
+		}
+
+		public function getActivate($id){
+			$device=Device::findOrFail($id);
+			$device->is_active=1;
+			$device->save(); 
+			return redirect()->back();
+		}
+		public function getDeactivate($id){
+			$device=Device::findOrFail($id);
+			$device->is_active=0;
+			$device->save(); 
 			return redirect()->back();
 		}
 	    /*
