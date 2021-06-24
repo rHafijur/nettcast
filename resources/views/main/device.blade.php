@@ -208,7 +208,8 @@
                         <div class="col-sm-2 p-2">
                             <!-- mobile pic  -->
                             {{-- <img src="{{asset($device->image)}}" alt="{{$device->brand->title}} {{$device->title}}"> --}}
-                            <img src="{{asset("/storage/device_images/".strtolower($device->slug).".jpg")}}" alt="{{$device->brand->title}} {{$device->title}}">
+                            <img src="{{asset($device->image)}}" alt="">
+                            {{-- <img src="{{asset("/storage/device_images/".strtolower($device->slug).".jpg")}}" alt="{{$device->brand->title}} {{$device->title}}"> --}}
                         </div>
                         <div class="col-sm-10">
                             <div class="row">

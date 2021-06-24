@@ -10,8 +10,8 @@ class News extends Model
     use HasFactory;
     protected $fillable=['brand_id','user_id','title','slug','thumbnail','meta_title','meta_description','meta_keywords','body','view_count'];
    
-    public function user(){
-        return $this->belongsTo('App\Models\User');
+    public function author(){
+        return $this->belongsTo('App\Models\CmsUser','user_id');
     }
     public function brand(){
         return $this->belongsTo('App\Models\Brand');
@@ -19,7 +19,7 @@ class News extends Model
 
     public function comments()
     {
-        return $this->morphMany('App\Comment', 'commentable');
+        return $this->morphMany('App\Models\Comment', 'commentable');
     }
     public function getMetaKeywords(){
         if($this->meta_keywords==null){
