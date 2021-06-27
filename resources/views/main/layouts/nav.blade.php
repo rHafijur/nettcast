@@ -179,60 +179,19 @@
 					<div id="search-overlay-inner">
 
 						<form action="http://orange-themes.net/demo/techmag/html/blog.html" method="get">
-							<input type="text" value="" placeholder="Search something..">
+							<input type="text" value="" onkeyup="liveSearch(this)" placeholder="Search something..">
 							<button type="submit"><i class="fa fa-search"></i></button>
 						</form>
 
-						<strong class="category-listing-title" data-ot-css="border-color: #e15c41;">Articles worth reading</strong>
-
-						<div class="content-panel article-grid" data-lets-grid="3">
-
-							<div class="item">
-								<div class="item-categies">
-									<a href="category.html" data-ot-css="background-color: #fc5a3f;">Headphones</a>
-									<a href="category.html" data-ot-css="background-color: #298ccb;">Electronics</a>
-								</div>
-								<h3><a href="post.html">The Biggest Oscar Snub of All: Why the Academy Needs to Acknowledge</a></h3>
-								<span class="item-meta">
-									<span class="item-meta-i">by <a href="blog.html">admin</a></span>
-									<a href="blog.html" class="item-meta-i">3 months ago</a>
-								</span>
-								<div class="item-image">
-									<a href="post.html#comments" class="item-image-c">56</a>
-									<a href="post.html" class="item-image-i ot-image-hover"><img src="{{asset('assets/images/photos/image-1.jpg')}}" alt="" /></a>
+						<strong class="category-listing-title" data-ot-css="border-color: #e15c41;">Results</strong>
+						<div class="row">
+							<div class="col-md-4"></div>
+							<div class="col-md-4">
+								<strong class="category-listing-title">Devices</strong>
+								<div id="deviceResults">
 								</div>
 							</div>
-
-							<div class="item">
-								<div class="item-categies">
-									<a href="category.html" data-ot-css="background-color: #fc5a3f;">Headphones</a>
-								</div>
-								<h3><a href="post.html">The Biggest Oscar Snub of All: Why the Academy Needs to Acknowledge</a></h3>
-								<span class="item-meta">
-									<span class="item-meta-i">by <a href="blog.html">admin</a></span>
-									<a href="blog.html" class="item-meta-i">3 months ago</a>
-								</span>
-								<div class="item-image">
-									<a href="post.html#comments" class="item-image-c">56</a>
-									<a href="post.html" class="item-image-i ot-image-hover"><img src="{{asset('assets/images/photos/image-2.jpg')}}" alt="" /></a>
-								</div>
-							</div>
-
-							<div class="item">
-								<div class="item-categies">
-									<a href="category.html" data-ot-css="background-color: #298ccb;">Electronics</a>
-								</div>
-								<h3><a href="post.html">The Biggest Oscar Snub of All: Why the Academy Needs to Acknowledge</a></h3>
-								<span class="item-meta">
-									<span class="item-meta-i">by <a href="blog.html">admin</a></span>
-									<a href="blog.html" class="item-meta-i">3 months ago</a>
-								</span>
-								<div class="item-image">
-									<a href="post.html#comments" class="item-image-c">56</a>
-									<a href="post.html" class="item-image-i ot-image-hover"><img src="{{asset('assets/images/photos/image-3.jpg')}}" alt="" /></a>
-								</div>
-							</div>
-
+							<div class="col-md-4"></div>
 						</div>
 
 					</div>
@@ -240,3 +199,37 @@
 
 			<!-- END #header -->
 			</header>
+			@push('script')
+				<script>
+					function getResultRow(url,image,title){
+						return `
+								<div class="row card">
+										<div class="card-body">
+											<a href="`+url+`">
+												<div class="col-md-4">
+													<img src="`+image+`" alt="`+title+`">
+												</div>
+												<div class="col-md-8">
+													<strong>`+title+`</strong>
+												</div>
+											</a>
+										</div>
+									</div>
+									`;
+					}
+					function liveSearch(el){
+						const val= jQuery(el).val();
+						if(val!=""){
+							var url=`{{url('ajax-search')}}/`+val;
+							jQuery.get(url,function(res,status){
+								// res=JSON.parse(res);
+								var deviceHtml="";
+								for(device of res.devices){
+									deviceHtml+=getResultRow(device.url,device.image,device.title);
+									jQuery("#deviceResults").html(deviceHtml);
+								}
+							});
+						}
+					}
+				</script>
+			@endpush

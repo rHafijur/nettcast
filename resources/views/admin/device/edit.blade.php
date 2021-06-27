@@ -91,7 +91,7 @@
                 <div class="col-md-6">
                     <div class="input-group">
                         <label>Meta Keywords</label>
-                        <select id="inp_meta_keywords" value="{{$device->getMetaKeywords()}}" class="form-control" multiple="multiple">
+                        <select id="inp_meta_keywords" class="form-control" multiple="multiple">
                          @foreach (json_decode($device->meta_keywords)  as $item)
                          <option selected>{{$item}}</option>
                          @endforeach

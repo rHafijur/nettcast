@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class News extends Model
 {
@@ -28,4 +29,18 @@ class News extends Model
         // dd(implode(',',json_decode($this->meta_keywords)));
         return implode(',',json_decode($this->meta_keywords));
     }
+    public function getCreatedTimeDiff(){
+        $c=Carbon::parse($this->created_at)->diffForHumans();
+        return $c;
+    }
+    public function getShortDescription(){
+        $str=$this->meta_description;
+        $cnt=strlen($str);
+        if($cnt<100){
+            return $str;
+        }else{
+            return substr($str,100)."...";
+        }
+    }
+
 }

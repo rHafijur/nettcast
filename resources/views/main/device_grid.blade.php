@@ -88,7 +88,7 @@
                 @foreach ($devices as $device)
                     
                 <div class="card">
-                    <a href="{{route('device.details',['category_slug'=>$category->slug,'brand_title'=>$device->brand->title,'device_slug'=>$device->slug,'device_id'=>$device->id])}}">
+                    <a href="{{route('device.details',['device_slug'=>$device->slug,'device_id'=>$device->id])}}">
                         <input type="checkbox" class="larger" style="display: none;">
                         {{-- <img src="{{asset($device->image)}}" alt=""> --}}
                         <img src="{{asset($device->image)}}" alt="">
@@ -154,11 +154,11 @@
 
         <x-news-section8 :newsList="$news8" :sectionTitle="'Most Popular'"/>
             
-            {{-- <div class="ot-pagination">
+            <div class="ot-pagination">
                 <a href="#" class="ot-pagination-button left"><i class="fa fa-angle-double-left"></i>Newer posts</a>
                 <a href="#" class="ot-pagination-button right active">Older posts<i class="fa fa-angle-double-right"></i></a>
                 <p>3 of 7 pages</p>
-            </div> --}}
+            </div>
 
         </div>
 

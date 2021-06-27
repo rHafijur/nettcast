@@ -243,7 +243,8 @@
 			// dd($request);
 			$tags=[];
 			if($request->meta_keywords){
-				$tags=explode(",",$request->meta_keywords);
+				// $tags=explode(",",$request->meta_keywords);
+				$tags=$request->meta_keywords;
 			}
 			$brand=Brand::findOrFail($request->brand_id);
 			$img=$request->file('thumbnail');
@@ -272,7 +273,8 @@
 			// dd($request);
 			$tags=[];
 			if($request->meta_keywords){
-				$tags=explode(",",$request->meta_keywords);
+				// $tags=explode(",",$request->meta_keywords);
+				$tags=$request->meta_keywords;
 			}
 			$brand=Brand::findOrFail($request->brand_id);
 			$news=News::findOrFail($request->id);
