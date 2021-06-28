@@ -128,12 +128,13 @@
 
 		<!-- Scripts -->
 		<script type="text/javascript" src="{{asset('assets/jscript/jquery-latest.min.js')}}"></script>
+		{{-- <script type="text/javascript" src="{{asset('assets/js/jquery.min.js')}}"></script> --}}
 		<script type="text/javascript" src="{{asset('assets/jscript/owl.carousel.min.js')}}"></script>
 		<script type="text/javascript" src="{{asset('assets/jscript/theme-scripts.min.js')}}"></script>
 		<script type="text/javascript" src="{{asset('assets/jscript/ot-lightbox.min.js')}}"></script>
 		<!-- Demo Only -->
 		<script type="text/javascript" src="{{asset('assets/jscript/_ot-demo.min.js')}}"></script>
-
+		@stack('script')
 	<!-- END body -->
 	</body>
 <!-- END html -->

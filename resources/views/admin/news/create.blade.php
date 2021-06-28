@@ -45,7 +45,7 @@
                 <div class="col-md-6">
                     <div class="input-group">
                         <label>Meta Keywords</label>
-                        <select id="inp_meta_keywords" class="form-control" name="meta_keywords" multiple="multiple">
+                        <select id="inp_meta_keywords" class="form-control" name="meta_keywords[]" multiple="multiple">
                         </select>
                     </div>
                 </div>

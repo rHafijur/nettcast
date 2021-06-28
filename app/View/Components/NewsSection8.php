@@ -19,18 +19,6 @@ class NewsSection8 extends Component
         $this->newsList=$newsList;
         $this->sectionTitle=$sectionTitle;
     }
-    public function timeDiff($time){
-        $c=Carbon::parse($time)->diffForHumans();
-        return $c;
-    }
-    public function description($str){
-        $cnt=strlen($str);
-        if($cnt<100){
-            return $str;
-        }else{
-            return substr($str,100)."...";
-        }
-    }
     
 
     /**
