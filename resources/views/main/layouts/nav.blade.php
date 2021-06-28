@@ -18,8 +18,8 @@
 						</nav>
 
 						<ul class="right">
-							<li><a href="login.html">Login</a></li>
-							<li><a href="signup.html">Sign up</a></li>
+							<li><a href="/login">Login</a></li>
+							<li><a href="/register">Sign up</a></li>
 						</ul>
 
 					<!-- END .wrapper -->

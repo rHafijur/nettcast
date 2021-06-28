@@ -6,6 +6,7 @@ use App\Models\Device;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
@@ -28,6 +29,12 @@ Route::post('/news/comment/new', [NewsController::class,'save_comment'])->name("
 Route::get('/{category_slug}/brands/{category_id}', [PageController::class,'brands'])->name('brands.all');
 Route::get('/{category_slug}/{brand_title}/{category_id}/{brand_id}/devices', [PageController::class,'devices'])->name('category.brands.devices');
 Route::get('/{device_slug}_{device_id}.html', [PageController::class,'device'])->name('device.details');
+
+
+//For User Authentication
+Route::get("/login" ,[UserController::class,'login'])->name('User.login');
+Route::get("/register" ,[UserController::class,'register'])->name('User.register');
+
 
 // Route::get('/import',[DeviceController::class, 'import']);
 // Route::get('change',function(){
