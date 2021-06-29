@@ -21,13 +21,15 @@ use Illuminate\Support\Facades\File;
 */
 // Route::get('/sync-brand',[BrandController::class,'sync']);
 Route::get('/', [PageController::class,'index']);
+Route::get('/compare', [PageController::class,'compare']);
 Route::get('/ajax-search/{q}', [PageController::class,'ajax_search'])->name('ajax.search');
 Route::get('/news', [NewsController::class,'all'])->name("news.all");
 Route::get('/news/{slug}', [NewsController::class,'details'])->name("news.details");
 Route::post('/news/comment/new', [NewsController::class,'save_comment'])->name("news.post_comment");
 Route::get('/{category_slug}/brands/{category_id}', [PageController::class,'brands'])->name('brands.all');
 Route::get('/{category_slug}/{brand_title}/{category_id}/{brand_id}/devices', [PageController::class,'devices'])->name('category.brands.devices');
-Route::get('/{device_slug}_{device_id}.html', [PageController::class,'device'])->name('device.details');
+Route::get('/{device_slug}_{device_id}', [PageController::class,'device'])->name('device.details');
+Route::get('/{device_slug}_{device_id}/pictures', [PageController::class,'device_pictures'])->name('device.pictures');
 
 // Route::get('/import',[DeviceController::class, 'import']);
 // Route::get('change',function(){
