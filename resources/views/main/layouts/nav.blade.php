@@ -16,25 +16,12 @@
 								<li class="navi-green-link"><a href="#tfbuy">Buy Theme</a></li>
 							</ul>
 						</nav>
-                        <!--
+
 						<ul class="right">
-							<li><a href="/login">Login</a></li>
-							<li><a href="/register">Sign up</a></li>
-						</ul> -->
-						<ul class="right">
-                          @if(Session::has('user'))
-                          <li class="dropdown">
-                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{Session::get('user')['name']}}
-                             <span class="caret"></span></a>
-                             <ul class="dropdown-menu">
-                          <li><a href="/logout">Logout</a></li>     
-                         </ul>
-						 </li>
-                        @else
-                         <li><a href="/login">Login</a></li>
-                         <li><a href="/register">Register</a></li>
-                        @endif
+							<li><a href="login.html">Login</a></li>
+							<li><a href="signup.html">Sign up</a></li>
 						</ul>
+
 					<!-- END .wrapper -->
 					</div>
 				</div>
