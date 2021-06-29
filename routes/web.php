@@ -32,8 +32,14 @@ Route::get('/{device_slug}_{device_id}.html', [PageController::class,'device'])-
 
 
 //For User Authentication
-Route::get("/login" ,[UserController::class,'login'])->name('User.login');
-Route::get("/register" ,[UserController::class,'register'])->name('User.register');
+Route::get("/login" ,[UserController::class,'login']);
+Route::get('/logout', function () {
+	Session::forget('user');
+    return redirect('login');
+});
+Route::get("/register" ,[UserController::class,'register']);
+Route::post("/login" ,[UserController::class,'login_Process'])->name('User.login');
+Route::post("/register" ,[UserController::class,'register_process'])->name('User.register');
 
 
 // Route::get('/import',[DeviceController::class, 'import']);

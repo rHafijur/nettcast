@@ -12,13 +12,37 @@
     <div id="inner-content">
         
         <div class="ot-form-login">
-            <p><input type="text" autocomplete="off" value="" placeholder="Username"></p>
-            <p><input type="email" autocomplete="off" value="" placeholder="E-mail"></p>
-            <p><input type="password" autocomplete="off" value="" placeholder="Password"></p>
-            <p><input type="password" autocomplete="off" value="" placeholder="Password repeat"></p>
-            <p class="text-center"><br><label><input type="checkbox" class="ot-transform-checkbox built"><span class="ot-checkbox-placeholder"></span>You need to agree our <a href="#">Terms of Service</a> to sign up.</label><br><br></p>
-            <p class="submit"><input type="submit" value="Signup" class="button"></p>
-            <p><a href="login.html">Login</a> if already a member!<br>Or did you <a href="forgot.html">forgot your password</a> ?</p>
+        <form method="POST" action="{{route('User.register')}}">
+            @csrf
+            <div class="form-group">
+                <label for="exampleInputName">Name</label>
+                <input type="text" class="form-control" name="name" >
+                @error('name') <p class="text-danger">{{$message}}</p> @enderror
+            </div>
+            <div class="form-group">
+                <label for="exampleInputUsername">Username</label>
+                <input type="text" class="form-control" name="username" >
+                @error('username') <p class="text-danger">{{$message}}</p> @enderror
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" name="email" >
+                @error('email') <p class="text-danger">{{$message}}</p> @enderror
+            </div>
+            <div class="form-group">
+               <label for="exampleInputPassword1">Password</label>
+               <input type="password" class="form-control" name="password" >
+               @error('password') <p class="text-danger">{{$message}}</p> @enderror
+            </div>
+            <div class="form-group">
+               <label for="exampleInputPassword1">Confirm Password</label>
+               <input type="password" class="form-control" name="password_confirmation" >
+               @error('password_confirmation') <p class="text-danger">{{$message}}</p> @enderror
+            </div>
+            <input type="submit" class="btn btn-primary" value="SignUp" name="submit">
+        </form>
+
+            <p><a href="/login">Login</a> if already a member!<br>Or did you <a href="forgot.html">forgot your password</a> ?</p>
         </div>
 
     <!-- END #inner-content -->
