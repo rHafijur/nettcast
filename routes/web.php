@@ -111,4 +111,5 @@ Route::get('file',function(){
     }
     return $i;
 });
-
+route::view('/dashboard','dashboard')->name('dashboard')->middleware('auth');
+require __DIR__.'/auth.php';
