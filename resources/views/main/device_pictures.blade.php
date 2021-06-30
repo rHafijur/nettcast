@@ -30,30 +30,15 @@
             <!-- full feature  -->
 
             <div class="row">
-                @foreach ($sps as $key => $sub_sp)
                 <div class="col-sm-12 mt-2"
                 style="background-color: rgba(236, 236, 236, 0.425);box-shadow: #444444 0 0 2px 0;">
+                <h3>{{$device->brand->title}} {{$device->title}} official images</h3>
                 <div class="row">
-                    <div class="col-sm-2 pl-0 text-center pt-2">
-                        <h4 class="text-danger text-uppercase font-weight-bold">{{$key}}</h4>
-                    </div>
-                    <div class="col-sm-10" style="font-size: 14px;">
-                        <table class="table">
-                            @foreach ($sub_sp as $sub_key => $sp)
-                            <tr>
-                                <td class="font-weight-bold">{{$sub_key}}</td>
-                                <td>{{$sp}}</td>
-                            </tr>
-                            @endforeach
-                        </table>
-                    </div>
+                    @foreach ($device->deviceImages as $image)
+                    <img src="{{asset($image->path)}}" class="img-fluid" alt="{{$device->brand->title}} {{$device->title}}">
+                    @endforeach
                 </div>
-                @if ($loop->last)
-                <p class="text-center mb-3"><b>Disclaimer:</b> We can not guarantee that the
-                    information on this page is 100% correct.</p>
-                @endif
             </div>
-                @endforeach
 
 
                 
@@ -75,66 +60,6 @@
 
 
             </div>
-
-            <!-- comments   -->
-            <div class="row">
-                <div class="col-sm-12">
-                    <h4 class="p-2 border-bottom">Samsung Galaxy M42 5G</h4>
-                </div>
-
-                <div class="col-sm-12 bg-secondary text-white p-0">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <i class="fa fa-user p-3" aria-hidden="true"></i>
-                            Human 1
-                        </div>
-                        <div class="col-sm-5"></div>
-                        <div class="col-sm-3 p-3">
-                            <span><b>Date: </b> 13-Apr,2021</span>
-                        </div>
-                        <div class="col-sm-2">
-                            <span>
-                                <i class="fa fa-location-arrow p-3" aria-hidden="true"></i>
-                                Dhaka</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12">
-                    <div class="card p-3 m-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae asperiores
-                        illum eos doloribus nesciunt nisi aperiam, iusto reprehenderit natus hic ex
-                        sequi commodi consectetur aliquam vitae, facilis pariatur deleniti qui?
-                    </div>
-                </div>
-
-                <div class="col-sm-12" style="background-color: #616161;padding: 10px;">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <a href="#" class="btn btn-light" onclick="document.getElementById('post_opinion').style.display='none'">Read All Opinion</a>
-                        </div>
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-light" onclick="document.getElementById('post_opinion').style.display='block'">Post Your Opinion</button>
-                        </div>
-                        <div class="col-sm-6"></div>
-                        <div class="col-sm-12" id="post_opinion" style="display: none;">
-                            <form action="">
-                                <textarea name="post" id="post" class="form-control mt-3" placeholder="Write Your Opinion"></textarea>
-                                <div class="text-right">
-                                    <input type="submit" value="Post" class="btn btn-light mt-2">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-
-
-                </div>
-            </div>
-
-
-
-//div
         </div>
             
 

@@ -48,6 +48,13 @@ class PageController extends Controller
         }])->firstOrFail();
         return view('main.device',compact('device','category'));
     }
+    public function device_pictures($device_slug,$device_id){
+        $device=Device::findOrFail($device_id);
+        $category=$device->category()->with(['brands'=>function($q){
+            return $q->orderby('priority','asc')->limit(40);
+        }])->firstOrFail();
+        return view('main.device_pictures',compact('device','category'));
+    }
     public function ajax_search($q){
         $q=trim($q);
         $slq=str_replace(" ","-",$q);
@@ -63,5 +70,44 @@ class PageController extends Controller
         return [
             'devices'=>$deviceArray
         ];
+    }
+    public function compare(Request $request){
+        $sp1=null;
+        $sp2=null;
+        $sp3=null;
+        $device1=null;
+        $device2=null;
+        $device3=null;
+        $sp=[];
+        if($request->device1_id){
+            $device1=Device::find($request->device1_id);
+            $sp1=json_decode($device1->specifications,true);
+            // dd($sp1);
+            foreach($sp1 as $key=> $s1){
+                foreach($s1 as $k => $at1){
+                    $sp[$key][$k]["one"]= $at1;
+                }
+            }
+        }
+        if($request->device2_id){
+            $device2=Device::find($request->device2_id);
+            $sp2=json_decode($device2->specifications,true);
+            foreach($sp2 as $key=> $s2){
+                foreach($s2 as $k => $at2){
+                    $sp[$key][$k]["two"]= $at2;
+                }
+            }
+        }
+        if($request->device3_id){
+            $device3=Device::find($request->device3_id);
+            $sp3=json_decode($device3->specifications,true);
+            foreach($sp3 as $key=> $s3){
+                foreach($s3 as $k => $at3){
+                    $sp[$key][$k]["three"]= $at3;
+                }
+            }
+        }
+        $sps=$sp;
+        return view('main.compare',compact('sps','device1','device2','device3'));
     }
 }
