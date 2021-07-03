@@ -21,8 +21,9 @@ use Illuminate\Support\Facades\File;
 */
 // Route::get('/sync-brand',[BrandController::class,'sync']);
 Route::get('/', [PageController::class,'index']);
-Route::get('/compare', [PageController::class,'compare']);
+Route::get('/compare', [PageController::class,'compare'])->name('compare');
 Route::get('/ajax-search/{q}', [PageController::class,'ajax_search'])->name('ajax.search');
+Route::get('/compare-ajax-search/{q?}', [PageController::class,'compare_ajax_search'])->name('ajax.compare_search');
 Route::get('/news', [NewsController::class,'all'])->name("news.all");
 Route::get('/news/{slug}', [NewsController::class,'details'])->name("news.details");
 Route::post('/news/comment/new', [NewsController::class,'save_comment'])->name("news.post_comment");

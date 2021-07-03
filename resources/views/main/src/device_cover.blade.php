@@ -150,7 +150,7 @@
                     <a href="#">Options</a>
                 </div>
                 <div class="col-sm-2">
-                    <a href="#">compare</a>
+                    <a href="{{route('compare',["device1_id"=>$device->id])}}">compare</a>
                 </div>
                 @if($device->deviceImages()->count()>0)
                 <div class="col-sm-2">
