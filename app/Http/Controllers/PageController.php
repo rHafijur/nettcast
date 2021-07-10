@@ -71,6 +71,20 @@ class PageController extends Controller
             'devices'=>$deviceArray
         ];
     }
+    public function compare_ajax_search($q){
+        $q=trim($q);
+        $slq=str_replace(" ","-",$q);
+        $deviceArray=[];
+        $devices=Device::where('slug','like','%'.$slq.'%')->limit(5)->with('brand')->select('id','brand_id','slug','image','title')->get();
+        foreach($devices as $device){
+            $deviceArray[]=[
+                "id"=>$device->id,
+                "title"=>$device->brand->title." ".$device->title,
+                "image"=>asset($device->image),
+            ];
+        }
+        return $deviceArray;
+    }
     public function compare(Request $request){
         $sp1=null;
         $sp2=null;
