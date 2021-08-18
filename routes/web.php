@@ -7,6 +7,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 
@@ -22,6 +23,7 @@ use Illuminate\Support\Facades\File;
 */
 // Route::get('/sync-brand',[BrandController::class,'sync']);
 Route::get('/', [PageController::class,'index']);
+Route::get('/logout', [AuthenticatedSessionController::class,'destroy']);
 Route::get('/compare', [PageController::class,'compare'])->name('compare');
 Route::get('/ajax-search/{q}', [PageController::class,'ajax_search'])->name('ajax.search');
 Route::get('/compare-ajax-search/{q?}', [PageController::class,'compare_ajax_search'])->name('ajax.compare_search');
@@ -33,6 +35,7 @@ Route::get('/reviews/{slug}', [ReviewController::class,'details'])->name("review
 
 Route::post('/news/comment/new', [NewsController::class,'save_comment'])->name("news.post_comment");
 Route::post('/device/comment/new', [DeviceController::class,'save_comment'])->name("device.post_comment");
+Route::get('/device/like', [DeviceController::class,'like'])->name("device.like");
 Route::get('/{category_slug}/brands/{category_id}', [PageController::class,'brands'])->name('brands.all');
 Route::get('/{category_slug}/{brand_title}/{category_id}/{brand_id}/devices', [PageController::class,'devices'])->name('category.brands.devices');
 Route::get('/{device_slug}_{device_id}', [PageController::class,'device'])->name('device.details');

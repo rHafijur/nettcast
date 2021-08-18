@@ -9,6 +9,10 @@ class ReviewController extends Controller
 {
     public function details($slug){
         $review=Review::where('slug',$slug)->firstOrFail();
+        if(!strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot"))
+        {
+            $review->increment('view_count');
+        }
         $device=$review->device;
         $category=$device->category()->with(['brands'=>function($q){
             return $q->orderby('priority','asc')->limit(40);

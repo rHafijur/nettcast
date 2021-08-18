@@ -43,6 +43,10 @@ class PageController extends Controller
 
     public function device($device_slug,$device_id){
         $device=Device::findOrFail($device_id);
+        if(!strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot"))
+        {
+            $device->increment('view_count');
+        }
         $category=$device->category()->with(['brands'=>function($q){
             return $q->orderby('priority','asc')->limit(40);
         }])->firstOrFail();

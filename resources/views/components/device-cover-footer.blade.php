@@ -1,6 +1,9 @@
 <div class="col-sm-12 details-footer">
     <div class="row">
-        <div class="col-sm-6"></div>
+        {{-- <div class="col-sm-4"></div> --}}
+        <div class="col-sm-2">
+            <a href="{{route('device.details',['device_slug'=>$device->slug,'device_id'=>$device->id])}}">Options</a>
+        </div>
         @if ($rev = $device->review)
         <div class="col-sm-2">
             <a href="{{route('reviews.details',['slug'=>$rev->slug])}}">Review</a>

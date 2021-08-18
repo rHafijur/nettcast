@@ -23,6 +23,10 @@ class NewsController extends Controller
     }
     public function details($slug){
         $news=News::where('slug',$slug)->with('author')->withCount('comments')->firstOrFail();
+        if(!strstr(strtolower($_SERVER['HTTP_USER_AGENT']), "googlebot"))
+        {
+            $news->increment('view_count');
+        }
         $prevNews=News::find($news->id - 1);
         $nextNews=News::find($news->id + 1);
         return view("main.single_news",compact("news","prevNews","nextNews"));

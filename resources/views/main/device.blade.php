@@ -58,20 +58,7 @@
 
                 
 
-                <div class="col-sm-12" style="background-color: #616161;padding: 10px;">
-                    <div class="row">
-                        <div class="col-sm-6"></div>
-                        <div class="col-sm-2">
-                            <a href="#" class="text-white">Options</a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="#" class="text-white">compare</a>
-                        </div>
-                        <div class="col-sm-2">
-                            <a href="#" class="text-white">pictures</a>
-                        </div>
-                    </div>
-                </div>
+                <x-device-cover-footer :device="$device" />
 
 
             </div>

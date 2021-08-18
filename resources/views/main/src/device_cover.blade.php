@@ -108,20 +108,38 @@
                         <div class="col-sm-3">
                             <div class="row">
                                 <div class="col-sm-12 border-right pt-3 text-center">
-                                    {{-- <h3><i class="fas fa-chart-area"></i></h3> --}}
-                                    <h3>N/A</h3>
+                                    <h3><i class="icofont-chart-line"></i></h3>
+                                    {{-- <h3>N/A</h3> --}}
                                     <h6>{{$device->view_count}} Hits</h6>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-3">
-                            <div class="row">
+                            <div class="row" onclick="like()" style="cursor: pointer">
                                 <div class="col-sm-12 border-right pt-3 text-center">
-                                    <h3>{{$device->likes()->count()}}</h3>
+                                    <h3><i id="like" @if($device->likes()->where('user_id',auth()->id())->get()->count()>0) style="color:red" @endif class="fa fa-heart"></i> <span id="likeCount">{{$device->likes()->count()}}</span></h3>
                                     <h6>BECOME A FAN</h6>
                                 </div>
                             </div>
                         </div>
+                        <script>
+                            function like(){
+                                let $=jQuery;
+                                @if(auth()->check())
+                                $.get('{{route("device.like")}}',{id:{{$device->id}}},function(data,status){
+                                    if(status=='success' && data==1){
+                                        $("#like").css('color','red');
+                                        var cnt=$("#likeCount").text();
+                                        cnt= parseInt(cnt);
+                                        $("#likeCount").text(cnt+1);
+                                    }
+                                });
+                                @else
+                                alert("Please Login first");
+                                @endif
+                            }
+                        </script>
+
                     </div>
                     <div class="row">
                         @foreach ($sps_header_2 as $sh_2)

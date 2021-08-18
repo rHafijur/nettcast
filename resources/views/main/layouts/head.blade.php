@@ -5,7 +5,7 @@
 	
 <!-- nettcast.com/ by Nettcast 2021 [@], Tue, 25 May 2021 06:22:48 GMT -->
 <head>
-		<title>Techmagazine | Homepage</title>
+		<title>Nettcast</title>
 
 		<!-- Meta Tags -->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

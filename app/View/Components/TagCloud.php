@@ -12,8 +12,10 @@ class TagCloud extends Component
      * @return void
      */
     public $tags;
-    public function __construct()
+    public $title;
+    public function __construct($title = "Tag Cloud", $amount = 20)
     {
+        $this->title=$title;
         $tagArray=News::pluck('meta_keywords');
         $countTags=[];
         foreach($tagArray as $t){
@@ -31,7 +33,7 @@ class TagCloud extends Component
         $this->tags=[];
         $i=0;
         foreach($countTags as $key => $val){
-            if($i>20) break;
+            if($i>$amount) break;
             $this->tags[]=$key;
         }
     }

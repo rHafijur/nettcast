@@ -33,6 +33,17 @@ private function getBrandId($title){
     }
     return $brand->id;
 }
+public function like(Request $request){
+    $device=Device::findOrFail($request->id);
+    $lc=$device->likes()->where('user_id',auth()->id())->get()->count();
+    if($lc>0){
+        return false;
+    }
+    $device->likes()->create([
+        'user_id' => auth()->id()
+    ]);
+    return true;
+}
 public function import(){
         $csvFileName = "gsm.csv";
         $csvFile = public_path('' . $csvFileName);

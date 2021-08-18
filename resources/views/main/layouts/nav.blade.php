@@ -8,8 +8,8 @@
 						<div class="wrapper">
 
 							<div id="header-logo">
-<!--								 <h1 id="header-logo-text"><a href="index.html"><strong>tech</strong>magazine</a></h1> -->
-								<a href="{{url('/')}}"><img id="header-logo-img" src="{{asset('assets/images/logo.png')}}" data-ot-retina="images/logo@2x.png"  alt="" /></a>
+								<h1 id="header-logo-text"><a href="{{url('/')}}">Nettcast</a></h1>
+								{{-- <a href="{{url('/')}}"><img id="header-logo-img" src="{{asset('assets/images/logo.png')}}" data-ot-retina="images/logo@2x.png"  alt="" /></a> --}}
 							</div>
 
 							<nav id="main-menu" class="left">
@@ -26,8 +26,6 @@
 														<ul class="menu">
 															<li><a href="{{url('/')}}"><i class="material-icons">home</i>Home</a></li>
 															<li><a href="{{route('news.all')}}"><i class="material-icons">description</i>News</a></li>
-															<li><a href="{{url('/login')}}"><i class="material-icons"></i>Login</a></li>
-															<li><a href="{{url('/register')}}"><i class="material-icons"></i>Register</a></li>
 														</ul>
 													</div>
 												<!-- END .widget -->
@@ -55,9 +53,14 @@
 								</ul>
 							</nav>
 
-							<a href="{{url('/login')}}" style="line-height: 55px; padding: 0 17px;" class="right">Login</a>
-							<a href="{{url('/register')}}" style="line-height: 55px; padding: 0 17px;" class="right">Register</a>
 							<a href="#" class="main-menu-search right"><i class="fa fa-search"></i></a>
+							@if (auth()->check())
+							<a href="{{url('logout')}}" style="line-height: 55px; padding: 0 17px;" class="right">Logout</a>
+							<a href="#" style="line-height: 55px; padding: 0 17px;" class="right">{{auth()->user()->name}}</a>
+							@else
+							<a href="{{url('/register')}}" style="line-height: 55px; padding: 0 17px;" class="right">Register</a>
+							<a href="{{url('/login')}}" style="line-height: 55px; padding: 0 17px;" class="right">Login</a>
+							@endif
 						<!-- END .wrapper -->
 						</div>
 

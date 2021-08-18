@@ -9,7 +9,7 @@
                 <a href="#" class="social-ot-color-linkedin"><i class="fa fa-linkedin"></i><span><strong>20</strong><i>shares</i></span></a>
                 <a href="#" class="social-ot-color-pinterest"><i class="fa fa-pinterest-p"></i><span><strong>20</strong><i>pins</i></span></a>
             </div>
-            <p>Enissim ad vis. His in mus verear. An pri corpora evertitur adolescens.</p>
+            {{-- <p>Enissim ad vis. His in mus verear. An pri corpora evertitur adolescens.</p> --}}
         </div>
     </div>
 </div>

@@ -97,8 +97,6 @@
                         <img src="https://www.gsmarena.com.bd/images/products/{{strtolower($device->slug).".jpg"}}" alt=""> --}}
                         
                         <h2 style="text-align: center; padding: 10px;">{{$device->title}}</h2>
-                        <p style="text-align: justify;padding: 10px; background-color: #444444;">Lorem ipsum dolor sit amet .
-                            Lorem ipsum dolor sit amet . </p>
                     </a>
                 </div>
                 @endforeach
@@ -154,11 +152,11 @@
 
         <x-news-section8 :newsList="$news8" :sectionTitle="'Most Popular'"/>
             
-            <div class="ot-pagination">
+            {{-- <div class="ot-pagination">
                 <a href="#" class="ot-pagination-button left"><i class="fa fa-angle-double-left"></i>Newer posts</a>
                 <a href="#" class="ot-pagination-button right active">Older posts<i class="fa fa-angle-double-right"></i></a>
                 <p>3 of 7 pages</p>
-            </div>
+            </div> --}}
 
         </div>
 
