@@ -16,7 +16,7 @@ class Review extends Model
 
     public function comments()
     {
-        return $this->morphMany('App\Comment', 'commentable');
+        return $this->morphMany('App\Models\Comment', 'commentable');
     }
     public function getMetaKeywords(){
         if($this->meta_keywords==null){

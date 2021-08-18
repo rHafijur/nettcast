@@ -108,6 +108,7 @@
                         <div class="col-sm-3">
                             <div class="row">
                                 <div class="col-sm-12 border-right pt-3 text-center">
+                                    {{-- <h3><i class="fas fa-chart-area"></i></h3> --}}
                                     <h3>N/A</h3>
                                     <h6>{{$device->view_count}} Hits</h6>
                                 </div>
@@ -143,21 +144,6 @@
             </div>
         </div>
 
-        <div class="col-sm-12 details-footer">
-            <div class="row">
-                <div class="col-sm-6"></div>
-                <div class="col-sm-2">
-                    <a href="#">Options</a>
-                </div>
-                <div class="col-sm-2">
-                    <a href="{{route('compare',["device1_id"=>$device->id])}}">compare</a>
-                </div>
-                @if($device->deviceImages()->count()>0)
-                <div class="col-sm-2">
-                    <a href="{{route('device.pictures',['device_slug'=>$device->slug,'device_id'=>$device->id])}}">pictures</a>
-                </div>
-                @endif
-            </div>
-        </div>
+        <x-device-cover-footer :device="$device" />
     </div>
 </div>

@@ -8,6 +8,15 @@ use App\Models\Device;
 
 class DeviceController extends Controller
 {
+    public function save_comment(Request $request){
+        $device=Device::findOrFail($request->id);
+        $device->opinions()->create([
+            'user_id'=>auth()->id(),
+            'body'=>$request->body
+        ]);
+        return redirect()->back();
+    }
+
     private function readCSV($csvFile, $array)
 {
     $file_handle = fopen($csvFile, 'r');

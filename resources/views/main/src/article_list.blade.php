@@ -81,51 +81,7 @@
                 </div>
             </div>
 
-            <div class="widget">
-                <h4><span>Popular articles</span></h4>
-                <div class="widget-content ot-w-article-list">
-
-                    <div class="item">
-                        <div class="item-header">
-                            <a href="post.html"><img src="{{asset('assets/images/photos/image-13.jpg')}}" alt="" /></a>
-                        </div>
-                        <div class="item-content">
-                            <h5><a href="post.html">Falli alienum contentes ne visero homero</a></h5>
-                            <span class="item-meta">
-                                <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                                <a href="blog.html" class="item-meta-i">3 months ago</a>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-header">
-                            <a href="post.html"><img src="{{asset('assets/images/photos/image-14.jpg')}}" alt="" /></a>
-                        </div>
-                        <div class="item-content">
-                            <h5><a href="post.html">Tacimates conceptam vel eiut vim dolore possim</a></h5>
-                            <span class="item-meta">
-                                <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                                <a href="blog.html" class="item-meta-i">3 months ago</a>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="item">
-                        <div class="item-header">
-                            <a href="post.html"><img src="{{asset('assets/images/photos/image-15.jpg')}}" alt="" /></a>
-                        </div>
-                        <div class="item-content">
-                            <h5><a href="post.html">Tacimates conceptam vel eiut vim dolore possim</a></h5>
-                            <span class="item-meta">
-                                <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                                <a href="blog.html" class="item-meta-i">3 months ago</a>
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            <x-popular-articles />
 
             <div class="widget widget-300">
                 <div class="widget-content">
@@ -133,20 +89,7 @@
                 </div>
             </div>
 
-            <div class="widget">
-                <h4><span>Tag Cloud</span></h4>
-                <div class="tagcloud">
-                    <a href="blog.html">Dignissim</a>
-                    <a href="blog.html">Habeo quods</a>
-                    <a href="blog.html">Sumo</a>
-                    <a href="blog.html">Prima dicunt</a>
-                    <a href="blog.html">Scripser</a>
-                    <a href="blog.html">Dignissim</a>
-                    <a href="blog.html">Habeo quods</a>
-                    <a href="blog.html">Sumo</a>
-                    <a href="blog.html">Prima dicunt</a>
-                </div>
-            </div>
+            <x-tag-cloud />
 
         </aside>
 

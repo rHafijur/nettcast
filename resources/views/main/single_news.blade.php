@@ -90,20 +90,6 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="ot-article-title-block">
-                                        <h3>About author</h3>
-                                    </div>
-                                    
-                                    <div class="ot-block-inner-content ot-article-author-block">
-                                        <div class="ot-article-author-header">
-                                            <a href="#"><img src="images/photos/avatar-1.jpg" alt="" /></a>
-                                        </div>
-                                        <div class="ot-article-author-content">
-                                            <h4><a href="#">Orange Themes</a></h4>
-                                            <p>Albucius torquatos definitiones ne vis, in mel reque errem efficiantur, et duo mollis oporteat. Est altera disputando, ferri quidam petentium et vim. Stet possim usu an, in nostro doctus pertinax eam. Extenda evertitur id mea, pro erant comprehensam in. Sint salutandi accommodare pro ad.</p>
-                                            <a href="blog.html" class="ot-meta-button"><i class="fa fa-folder"></i>&nbsp;&nbsp;&nbsp;View more articles</a>
-                                        </div>
-                                    </div>
                                     
                                     <div class="ot-article-title-block">
                                         <h3>{{$news->comments_count}} Comments</h3>
@@ -176,16 +162,7 @@
     
                                     <aside class="sidebar">
     
-                                        <div class="widget">
-                                            <h4><span>Search blog</span></h4>
-                                            <form method="get" class="search-form" action="#">
-                                                <label>
-                                                    <span class="screen-reader-text">Search for:</span>
-                                                    <input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
-                                                </label>
-                                                <input type="submit" class="search-submit screen-reader-text" value="Search">
-                                            </form>
-                                        </div>
+                                        <x-search-blog />
     
                                         <div class="widget">
                                             <h4><span>Socialize</span></h4>
@@ -201,51 +178,7 @@
                                             </div>
                                         </div>
     
-                                        <div class="widget">
-                                            <h4><span>Popular articles</span></h4>
-                                            <div class="widget-content ot-w-article-list">
-    
-                                                <div class="item">
-                                                    <div class="item-header">
-                                                        <a href="post.html"><img src="images/photos/image-13.jpg" alt="" /></a>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <h5><a href="post.html">Falli alienum contentes ne visero homero</a></h5>
-                                                        <span class="item-meta">
-                                                            <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                                                            <a href="blog.html" class="item-meta-i">3 months ago</a>
-                                                        </span>
-                                                    </div>
-                                                </div>
-    
-                                                <div class="item">
-                                                    <div class="item-header">
-                                                        <a href="post.html"><img src="images/photos/image-14.jpg" alt="" /></a>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <h5><a href="post.html">Tacimates conceptam vel eiut vim dolore possim</a></h5>
-                                                        <span class="item-meta">
-                                                            <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                                                            <a href="blog.html" class="item-meta-i">3 months ago</a>
-                                                        </span>
-                                                    </div>
-                                                </div>
-    
-                                                <div class="item">
-                                                    <div class="item-header">
-                                                        <a href="post.html"><img src="images/photos/image-15.jpg" alt="" /></a>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <h5><a href="post.html">Tacimates conceptam vel eiut vim dolore possim</a></h5>
-                                                        <span class="item-meta">
-                                                            <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                                                            <a href="blog.html" class="item-meta-i">3 months ago</a>
-                                                        </span>
-                                                    </div>
-                                                </div>
-    
-                                            </div>
-                                        </div>
+                                        <x-popular-articles />
     
                                         <div class="widget widget-300">
                                             <div class="widget-content">
@@ -253,78 +186,7 @@
                                             </div>
                                         </div>
     
-                                        <div class="widget">
-                                            <h4><span>Tag Cloud</span></h4>
-                                            <div class="tagcloud">
-                                                <a href="blog.html">Dignissim</a>
-                                                <a href="blog.html">Habeo quods</a>
-                                                <a href="blog.html">Sumo</a>
-                                                <a href="blog.html">Prima dicunt</a>
-                                                <a href="blog.html">Scripser</a>
-                                                <a href="blog.html">Dignissim</a>
-                                                <a href="blog.html">Habeo quods</a>
-                                                <a href="blog.html">Sumo</a>
-                                                <a href="blog.html">Prima dicunt</a>
-                                            </div>
-                                        </div>
-    
-                                        <div class="widget">
-                                            <h4><span>Latest photo gallery</span></h4>
-                                            <div class="widget-content ot-w-gallery-list">
-                                                <div class="item">
-                                                    <div class="item-header">
-                                                        <div class="item-photo"><a href="photo-gallery-single.html"><img src="images/photos/image-20.jpg" alt="" /></a></div>
-                                                        <div class="item-photo"><a href="photo-gallery-single.html"><img src="images/photos/image-21.jpg" alt="" /></a></div>
-                                                        <div class="item-photo"><a href="photo-gallery-single.html"><img src="images/photos/image-22.jpg" alt="" /></a></div>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <h5><a href="photo-gallery-single.html">Te ius esse sapientem qualisque et hinc elit mentitum vim</a></h5>
-                                                        <p>No pri dicunt laoreet contentiones, vix et tamquam electram. An homero ceptam.</p>
-                                                        <a href="photo-gallery-single.html" class="ot-meta-button">View all photos <i class="fa fa-angle-right"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-    
-                                        <div class="widget">
-                                            <h4><span>Recent Comments</span></h4>
-                                            <div class="widget-content ot-w-comment-list">
-    
-                                                <div class="item">
-                                                    <div class="item-header">
-                                                        <a href="post.html"><img src="images/photos/avatar-1.jpg" alt="" /></a>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <h5>Orange Themes</h5>
-                                                        <p>No pri dicunt laoreet contentiones, vix electram.</p>
-                                                        <a href="post.html" class="ot-meta-button">Read full comment <i class="fa fa-angle-right"></i></a>
-                                                    </div>
-                                                </div>
-    
-                                                <div class="item">
-                                                    <div class="item-header">
-                                                        <a href="post.html"><img src="images/photos/avatar-2.jpg" alt="" /></a>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <h5><a href="#">Clayton Rachyl</a></h5>
-                                                        <p>No pri dicunt laoreet contentiones, vix et tamquam electram. An homero ceptam.</p>
-                                                        <a href="post.html" class="ot-meta-button">Read full comment <i class="fa fa-angle-right"></i></a>
-                                                    </div>
-                                                </div>
-    
-                                                <div class="item">
-                                                    <div class="item-header">
-                                                        <a href="post.html"><img src="images/photos/avatar-1.jpg" alt="" /></a>
-                                                    </div>
-                                                    <div class="item-content">
-                                                        <h5>Orange Themes</h5>
-                                                        <p>No pri dicunt laoreet contentiones, vix electram.</p>
-                                                        <a href="post.html" class="ot-meta-button">Read full comment <i class="fa fa-angle-right"></i></a>
-                                                    </div>
-                                                </div>
-    
-                                            </div>
-                                        </div>
+                                        <x-tag-cloud />
     
                                     </aside>
     

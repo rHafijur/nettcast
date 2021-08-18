@@ -2,144 +2,6 @@
 @section('content')
 <!-- BEGIN #inner-content -->
 <div id="inner-content">
-
-    <!-- BEGIN .content-panel-title -->
-    <div class="content-panel-title content-panel-tabbed">
-        <span class="active"><strong>Featured</strong> Customer Electronics</span>
-        <span><strong>Upcoming</strong> Audio Gear</span>
-        <i></i>
-    <!-- BEGIN .content-panel-title -->
-    </div>
-
-    <!-- BEGIN .content-panel-tabbed-c -->
-    <div class="content-panel-tabbed-c">
-
-        <div class="active">
-            <!-- BEGIN .content-panel -->
-            <div class="content-panel img-bg-slider lets-do-4 lets-do-slider">
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">56</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-9.jpg')}}" alt="" /></span>
-                        <span class="item-overlay">
-                            <span class="item-categies">
-                                <span data-ot-css="background-color: #fc5a3f;">Headphones</span>
-                            </span>
-                            <strong>The Biggest Oscar Snub of All: Why the Academy Needs to Acknowledge Animal Actors and Their Trainers</strong>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">52</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-10.jpg')}}" alt="" /></span>
-                        <span class="item-overlay">
-                            <span class="item-categies">
-                                <span data-ot-css="background-color: #298ccb;">Electronics</span>
-                            </span>
-                            <strong>Vide qualisque aliquando eu sed vis ridens mnesarchum</strong>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">93</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-11.jpg')}}" alt="" /></span>
-                        <span class="item-overlay">
-                            <span class="item-categies">
-                                <span data-ot-css="background-color: #28c357;">Mobile phones</span>
-                                <span data-ot-css="background-color: #298ccb;">Electronics</span>
-                            </span>
-                            <strong>Putent volutpat referrentur vim an. Modo cetero has ut senserit pericula eos et</strong>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">86</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-12.jpg')}}" alt="" /></span>
-                        <span class="item-overlay">
-                            <span class="item-categies">
-                                <span data-ot-css="background-color: #b752f1;">Laptops</span>
-                            </span>
-                            <strong>The Biggest Oscar Snub of All: Why the Academy Needs to Acknowledge Animal Actors and Their Trainers</strong>
-                        </span>
-                    </a>
-                </div>
-
-            <!-- END .content-panel -->
-            </div>
-        </div>
-
-        <div>
-            <!-- BEGIN .content-panel -->
-            <div class="content-panel img-bg-slider lets-do-4 lets-do-slider">
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">86</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-12.jpg')}}" alt="" /></span>
-                        <span class="item-overlay">
-                            <span class="item-categies">
-                                <span data-ot-css="background-color: #b752f1;">Laptops</span>
-                            </span>
-                            <strong>The Biggest Oscar Snub of All: Why the Academy Needs to Acknowledge Animal Actors and Their Trainers</strong>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">56</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-9.jpg')}}" alt="" /></span>
-                        <span class="item-overlay">
-                            <span class="item-categies">
-                                <span data-ot-css="background-color: #fc5a3f;">Headphones</span>
-                            </span>
-                            <strong>The Biggest Oscar Snub of All: Why the Academy Needs to Acknowledge Animal Actors and Their Trainers</strong>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">52</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-10.jpg')}}" alt="" /></span>
-                        <span class="item-overlay">
-                            <span class="item-categies">
-                                <span data-ot-css="background-color: #298ccb;">Electronics</span>
-                            </span>
-                            <strong>Vide qualisque aliquando eu sed vis ridens mnesarchum</strong>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">93</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-11.jpg')}}" alt="" /></span>
-                        <span class="item-overlay">
-                            <span class="item-categies">
-                                <span data-ot-css="background-color: #28c357;">Mobile phones</span>
-                                <span data-ot-css="background-color: #298ccb;">Electronics</span>
-                            </span>
-                            <strong>Putent volutpat referrentur vim an. Modo cetero has ut senserit pericula eos et</strong>
-                        </span>
-                    </a>
-                </div>
-
-            <!-- END .content-panel -->
-            </div>
-        </div>
-
-    <!-- END .content-panel-tabbed-c -->
-    </div>
-
-
     <!-- BEGIN .content-panel-title -->
     <div class="content-panel-title content-panel-tabbed">
         @foreach ($categories as $category)
@@ -210,8 +72,11 @@
 
     <!-- BEGIN .content-panel-title -->
     <div class="content-panel-title content-panel-tabbed">
-        <span class="active"><strong>Featured</strong> Gadget Reviews</span>
-        <span><strong>Latest</strong> Auto Gear Reviews</span>
+        @foreach ($categories as $category)
+        <span @if($loop->first) class="active" @endif > @if($loop->first) <strong>Latest</strong> @endif {{$category->title}} Reviews</span>
+        @endforeach
+        {{-- <span class="active"><strong>Featured</strong> Gadget Reviews</span>
+        <span><strong>Latest</strong> Auto Gear Reviews</span> --}}
         <i></i>
     <!-- BEGIN .content-panel-title -->
     </div>
@@ -219,109 +84,28 @@
     <!-- BEGIN .content-panel -->
     <div class="content-panel content-panel-tabbed-c">
 
-        <div class="active">
+        @foreach ($categories as $category)
+        <div @if($loop->first) class="active" @endif>
             <!-- BEGIN .content-panel -->
             <div class="content-panel img-bg-slider" data-lets-grid="4">
 
+                @foreach ($category->reviews as $review)
                 <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">29</span>
-                        <span class="review-score"><i class="left"></i><i class="right"></i>6.8</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-11.jpg')}}" alt="" /></span>
+                    <a href="{{route('reviews.details',['slug'=>$review->slug])}}" class="item-image">
+                        <span class="item-image-c">{{$review->comments->count()}}</span>
+                        {{-- <span class="review-score"><i class="left"></i><i class="right"></i>6.8</span> --}}
+                        <span class="ot-image-hover"><img src="{{asset($review->thumbnail)}}" alt="" /></span>
                         <span class="item-review">
-                            <strong>Pear BacMook 2015 review</strong>
+                            <strong>{{$review->title}}</strong>
                         </span>
                     </a>
                 </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">86</span>
-                        <span class="review-score"><i class="left"></i><i class="right"></i>9.2</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-12.jpg')}}" alt="" /></span>
-                        <span class="item-review">
-                            <strong>Asas A34e earbuds review</strong>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">56</span>
-                        <span class="review-score"><i class="left"></i><i class="right"></i>4.0</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-9.jpg')}}" alt="" /></span>
-                        <span class="item-review">
-                            <strong>Beats twins headphones review</strong>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">52</span>
-                        <span class="review-score"><i class="left"></i><i class="right"></i>8.0</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-10.jpg')}}" alt="" /></span>
-                        <span class="item-review">
-                            <strong>Zamzung Alaxy 90s review</strong>
-                        </span>
-                    </a>
-                </div>
-
+                @endforeach
             <!-- END .content-panel -->
             </div>
         </div>
+        @endforeach
 
-        <div>
-            <!-- BEGIN .content-panel -->
-            <div class="content-panel img-bg-slider" data-lets-grid="4">
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">52</span>
-                        <span class="review-score"><i class="left"></i><i class="right"></i>8.0</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-10.jpg')}}" alt="" /></span>
-                        <span class="item-review">
-                            <strong>Zamzung Alaxy 90s review</strong>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">29</span>
-                        <span class="review-score"><i class="left"></i><i class="right"></i>6.8</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-11.jpg')}}" alt="" /></span>
-                        <span class="item-review">
-                            <strong>Pear BacMook 2015 review</strong>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">86</span>
-                        <span class="review-score"><i class="left"></i><i class="right"></i>9.2</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-12.jpg')}}" alt="" /></span>
-                        <span class="item-review">
-                            <strong>Asas A34e earbuds review</strong>
-                        </span>
-                    </a>
-                </div>
-
-                <div class="item">
-                    <a href="post.html" class="item-image">
-                        <span class="item-image-c">56</span>
-                        <span class="review-score"><i class="left"></i><i class="right"></i>4.0</span>
-                        <span class="ot-image-hover"><img src="{{asset('assets/images/photos/image-9.jpg')}}" alt="" /></span>
-                        <span class="item-review">
-                            <strong>Beats twins headphones review</strong>
-                        </span>
-                    </a>
-                </div>
-
-            <!-- END .content-panel -->
-            </div>
-        </div>
 
     <!-- ENd .content-panel -->
     </div>
@@ -637,218 +421,7 @@
     </div>
 
 
-    <!-- BEGIN .content-panel-title -->
-    <div class="content-panel-title">
-        <span class="active"><strong>Sidebar</strong> &amp; grid article list</span>
-        <i></i>
-    <!-- BEGIN .content-panel-title -->
-    </div>
 
-    <!-- BEGIN .content-panel -->
-    <div class="content-panel content-with-sidebar lets-grid-wrap">
-        
-        <div class="ot-grid-column ot-col-3of4">
-            
-            <div class="article-grid" data-lets-grid="3">
-
-                <div class="item">
-                    <div class="item-categies">
-                        <a href="category.html" data-ot-css="background-color: #fc5a3f;">Headphones</a>
-                        <a href="category.html" data-ot-css="background-color: #298ccb;">Electronics</a>
-                    </div>
-                    <h3><a href="post.html">The Biggest Oscar Snub of All: Why the Academy Needs to Acknowledge</a></h3>
-                    <span class="item-meta">
-                        <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                        <a href="blog.html" class="item-meta-i">3 months ago</a>
-                    </span>
-                    <div class="item-image">
-                        <a href="post.html#comments" class="item-image-c">56</a>
-                        <a href="post.html" class="item-image-i ot-image-hover"><img src="{{asset('assets/images/photos/image-1.jpg')}}" alt="" /></a>
-                    </div>
-                    <p>This month will bring about the 88th Academy Awards. Starting in 1928, this prestigious award ceremony...</p>
-                </div>
-
-                <div class="item">
-                    <div class="item-categies">
-                        <a href="category.html" data-ot-css="background-color: #fc5a3f;">Headphones</a>
-                    </div>
-                    <h3><a href="post.html">Who moved my cheese dolcelatte monterey jack</a></h3>
-                    <span class="item-meta">
-                        <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                        <a href="blog.html" class="item-meta-i">3 months ago</a>
-                    </span>
-                    <div class="item-image">
-                        <a href="post.html#comments" class="item-image-c">32</a>
-                        <a href="post.html" class="item-image-i ot-image-hover"><img src="{{asset('assets/images/photos/image-2.jpg')}}" alt="" /></a>
-                    </div>
-                    <p>This month will bring about the 88th Academy Awards. Starting in 1928, this prestigious award ceremony...</p>
-                </div>
-
-                <div class="item">
-                    <div class="item-categies">
-                        <a href="category.html" data-ot-css="background-color: #28c357;">Mobile phones</a>
-                    </div>
-                    <h3><a href="post.html">The big cheese dolcelatte airedale dolcelatte cheesecake parmesan</a></h3>
-                    <span class="item-meta">
-                        <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                        <a href="blog.html" class="item-meta-i">3 months ago</a>
-                    </span>
-                    <div class="item-image">
-                        <a href="post.html#comments" class="item-image-c">56</a>
-                        <a href="post.html" class="item-image-i ot-image-hover"><img src="{{asset('assets/images/photos/image-3.jpg')}}" alt="" /></a>
-                    </div>
-                    <p>This month will bring about the 88th Academy Awards. Starting in 1928, this prestigious award ceremony...</p>
-                </div>
-
-                <div class="item">
-                    <div class="item-categies">
-                        <a href="category.html" data-ot-css="background-color: #298ccb;">Electronics</a>
-                    </div>
-                    <h3><a href="post.html">Boursin melted cheese fromage</a></h3>
-                    <span class="item-meta">
-                        <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                        <a href="blog.html" class="item-meta-i">3 months ago</a>
-                    </span>
-                    <div class="item-image">
-                        <a href="post.html#comments" class="item-image-c">32</a>
-                        <a href="post.html" class="item-image-i ot-image-hover"><img src="{{asset('assets/images/photos/image-4.jpg')}}" alt="" /></a>
-                    </div>
-                    <p>This month will bring about the 88th Academy Awards. Starting in 1928, this prestigious award ceremony...</p>
-                </div>
-
-
-
-
-                <div class="item">
-                    <div class="item-categies">
-                        <a href="category.html" data-ot-css="background-color: #fc5a3f;">Headphones</a>
-                        <a href="category.html" data-ot-css="background-color: #298ccb;">Electronics</a>
-                    </div>
-                    <h3><a href="post.html">The Biggest Oscar Snub of All: Why the Academy Needs to Acknowledge</a></h3>
-                    <span class="item-meta">
-                        <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                        <a href="blog.html" class="item-meta-i">3 months ago</a>
-                    </span>
-                    <div class="item-image">
-                        <a href="post.html#comments" class="item-image-c">56</a>
-                        <a href="post.html" class="item-image-i ot-image-hover"><img src="{{asset('assets/images/photos/image-5.jpg')}}" alt="" /></a>
-                    </div>
-                    <p>This month will bring about the 88th Academy Awards. Starting in 1928, this prestigious award ceremony...</p>
-                </div>
-
-                <div class="item">
-                    <div class="item-categies">
-                        <a href="category.html" data-ot-css="background-color: #b752f1;">Laptops</a>
-                    </div>
-                    <h3><a href="post.html">Who moved my cheese dolcelatte monterey jack</a></h3>
-                    <span class="item-meta">
-                        <span class="item-meta-i">by <a href="blog.html">admin</a></span>
-                        <a href="blog.html" class="item-meta-i">3 months ago</a>
-                    </span>
-                    <div class="item-image">
-                        <a href="post.html#comments" class="item-image-c">32</a>
-                        <a href="post.html" class="item-image-i ot-image-hover"><img src="{{asset('assets/images/photos/image-6.jpg')}}" alt="" /></a>
-                    </div>
-                    <p>This month will bring about the 88th Academy Awards. Starting in 1928, this prestigious award ceremony...</p>
-                </div>
-
-            </div>
-            
-<!--
-            <div class="ot-pagination">
-                <a class="prev page-numbers" href="#"><i class="fa fa-angle-double-left"></i>Previous</a>
-                <a class="page-numbers" href="#">1</a>
-                <span class="page-numbers current">2</span>
-                <a class="page-numbers" href="#">3</a>
-                <a class="page-numbers" href="#">4</a>
-                <a class="page-numbers" href="#">5</a>
-                <a class="next page-numbers" href="#">Next<i class="fa fa-angle-double-right"></i></a>
-            </div>
--->
-            
-<!--
-            <div class="ot-pagination">
-                <a href="#" class="ot-pagination-button">View more articles</a>
-            </div>
--->
-            
-            <div class="ot-pagination">
-                <a href="#" class="ot-pagination-button left"><i class="fa fa-angle-double-left"></i>Newer posts</a>
-                <a href="#" class="ot-pagination-button right active">Older posts<i class="fa fa-angle-double-right"></i></a>
-                <p>3 of 7 pages</p>
-            </div>
-
-        </div>
-
-        <div class="ot-grid-column ot-col-1of4">
-
-            <aside class="sidebar">
-
-                <div class="widget">
-                    <h4><span>Latest photo gallery</span></h4>
-                    <div class="widget-content ot-w-gallery-list">
-                        <div class="item">
-                            <div class="item-header">
-                                <div class="item-photo"><a href="photo-gallery-single.html"><img src="{{asset('assets/images/photos/image-20.jpg')}}" alt="" /></a></div>
-                                <div class="item-photo"><a href="photo-gallery-single.html"><img src="{{asset('assets/images/photos/image-21.jpg')}}" alt="" /></a></div>
-                                <div class="item-photo"><a href="photo-gallery-single.html"><img src="{{asset('assets/images/photos/image-22.jpg')}}" alt="" /></a></div>
-                            </div>
-                            <div class="item-content">
-                                <h5><a href="photo-gallery-single.html">Te ius esse sapientem qualisque et hinc elit mentitum vim</a></h5>
-                                <p>No pri dicunt laoreet contentiones, vix et tamquam electram. An homero ceptam.</p>
-                                <a href="photo-gallery-single.html" class="ot-meta-button">View all photos <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="widget">
-                    <h4><span>Recent Comments</span></h4>
-                    <div class="widget-content ot-w-comment-list">
-
-                        <div class="item">
-                            <div class="item-header">
-                                <a href="post.html"><img src="{{asset('assets/images/photos/avatar-1.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="item-content">
-                                <h5>Orange Themes</h5>
-                                <p>No pri dicunt laoreet contentiones, vix electram.</p>
-                                <a href="post.html" class="ot-meta-button">Read full comment <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-header">
-                                <a href="post.html"><img src="{{asset('assets/images/photos/avatar-2.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="item-content">
-                                <h5><a href="#">Clayton Rachyl</a></h5>
-                                <p>No pri dicunt laoreet contentiones, vix et tamquam electram. An homero ceptam.</p>
-                                <a href="post.html" class="ot-meta-button">Read full comment <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="item-header">
-                                <a href="post.html"><img src="{{asset('assets/images/photos/avatar-1.jpg')}}" alt="" /></a>
-                            </div>
-                            <div class="item-content">
-                                <h5>Orange Themes</h5>
-                                <p>No pri dicunt laoreet contentiones, vix electram.</p>
-                                <a href="post.html" class="ot-meta-button">Read full comment <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-            </aside>
-
-        </div>
-
-    <!-- END .content-panel -->
-    </div>
 
 <!-- ENd #inner-content -->
 </div>

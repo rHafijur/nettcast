@@ -1,5 +1,10 @@
 @extends('main.layouts.master')
 @section('content')
+<style>
+    h1{
+        font-size: 2.5em !important;
+    }
+</style>
 @php
     $sps=json_decode($device->specifications,true);
     $sps_header_1=json_decode($device->cover_specifications_1,true);
@@ -30,12 +35,18 @@
             <!-- full feature  -->
 
             <div class="row">
-                <div class="col-sm-12 mt-2"
-                style="background-color: rgba(236, 236, 236, 0.425);box-shadow: #444444 0 0 2px 0;">
-                <h3>{{$device->brand->title}} {{$device->title}} official images</h3>
-                <div class="row">
-                    @foreach ($device->deviceImages as $image)
-                    <img src="{{asset($image->path)}}" class="img-fluid" alt="{{$device->brand->title}} {{$device->title}}">
+                <div class="col-sm-12 mt-2">
+                    <div class="main-article-block">
+                        <h1>{{$review->title}}</h1>
+                        <img src="{{asset($review->thumbnail)}}" alt="{{$review->title}}"/>
+                    </div>
+                <div>
+                    @php
+                    $body=json_decode($review->body);
+                    @endphp
+                    @foreach ($body as $key => $section)
+                        <h3>{!!$key!!}</h3>
+                        {!!$section!!}
                     @endforeach
                 </div>
             </div>

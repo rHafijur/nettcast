@@ -5,6 +5,7 @@ use App\Http\Controllers\DeviceController;
 use App\Models\Device;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\BrandController;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
@@ -26,7 +27,12 @@ Route::get('/ajax-search/{q}', [PageController::class,'ajax_search'])->name('aja
 Route::get('/compare-ajax-search/{q?}', [PageController::class,'compare_ajax_search'])->name('ajax.compare_search');
 Route::get('/news', [NewsController::class,'all'])->name("news.all");
 Route::get('/news/{slug}', [NewsController::class,'details'])->name("news.details");
+
+// Route::get('/reviews', [ReviewController::class,'all'])->name("reviews.all");
+Route::get('/reviews/{slug}', [ReviewController::class,'details'])->name("reviews.details");
+
 Route::post('/news/comment/new', [NewsController::class,'save_comment'])->name("news.post_comment");
+Route::post('/device/comment/new', [DeviceController::class,'save_comment'])->name("device.post_comment");
 Route::get('/{category_slug}/brands/{category_id}', [PageController::class,'brands'])->name('brands.all');
 Route::get('/{category_slug}/{brand_title}/{category_id}/{brand_id}/devices', [PageController::class,'devices'])->name('category.brands.devices');
 Route::get('/{device_slug}_{device_id}', [PageController::class,'device'])->name('device.details');

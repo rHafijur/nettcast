@@ -133,7 +133,7 @@
 		<script type="text/javascript" src="{{asset('assets/jscript/theme-scripts.min.js')}}"></script>
 		<script type="text/javascript" src="{{asset('assets/jscript/ot-lightbox.min.js')}}"></script>
 		<!-- Demo Only -->
-		<script type="text/javascript" src="{{asset('assets/jscript/_ot-demo.min.js')}}"></script>
+		{{-- <script type="text/javascript" src="{{asset('assets/jscript/_ot-demo.min.js')}}"></script> --}}
 		@stack('script')
 	<!-- END body -->
 	</body>

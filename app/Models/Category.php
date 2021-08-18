@@ -16,4 +16,7 @@ class Category extends Model
     public function devices(){
         return $this->hasMany('App\Models\Device');
     }
+    public function reviews(){
+        return $this->hasManyThrough('App\Models\Review','App\Models\Device');
+    }
 }
