@@ -5,11 +5,11 @@
 	
 <!-- nettcast.com/ by Nettcast 2021 [@], Tue, 25 May 2021 06:22:48 GMT -->
 <head>
-		<title>Nettcast</title>
+		<title>@if(isset($title)) {{ucfirst($title)}} - @endif Nettcast</title>
 
 		<!-- Meta Tags -->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="description" content="" />
+		@stack('meta-data')
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 

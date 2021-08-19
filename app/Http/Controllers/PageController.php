@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Device;
 use App\Models\News;
+use Illuminate\Support\Str;
 use DB as DB;
 
 class PageController extends Controller
@@ -27,7 +28,8 @@ class PageController extends Controller
         $category=Category::where('id',$category_id)->with(['brands'=>function($q){
             return $q->orderby('priority','asc');
         }])->firstOrFail();
-        return view('main.brands',compact('category'));
+        $title=$category->title." all brands";
+        return view('main.brands',compact('category','title'));
     }
 
     public function devices($category_slug,$brand_title,$category_id,$brand_id){
@@ -37,8 +39,9 @@ class PageController extends Controller
         $news8=News::with('author')->withCount('comments')->orderBy("view_count",'desc')->limit(8)->get();
         $brand=Brand::findOrFail($brand_id);
         $devices=Device::where('category_id',$category_id)->where('brand_id',$brand_id)->latest()->paginate(30);
+        $title=$brand->title." all ".Str::plural($category->title);
         // $devices=Device::where('category_id',$category_id)->where('brand_id',$brand_id)->latest()->get();
-        return view('main.device_grid',compact('devices','category','brand','news8'));
+        return view('main.device_grid',compact('devices','category','brand','news8','title'));
     }
 
     public function device($device_slug,$device_id){
@@ -50,14 +53,16 @@ class PageController extends Controller
         $category=$device->category()->with(['brands'=>function($q){
             return $q->orderby('priority','asc')->limit(40);
         }])->firstOrFail();
-        return view('main.device',compact('device','category'));
+        $title=$device->brand->title." ".$device->title;
+        return view('main.device',compact('device','category','title'));
     }
     public function device_pictures($device_slug,$device_id){
         $device=Device::findOrFail($device_id);
         $category=$device->category()->with(['brands'=>function($q){
             return $q->orderby('priority','asc')->limit(40);
         }])->firstOrFail();
-        return view('main.device_pictures',compact('device','category'));
+        $title=$device->brand->title." ".$device->title." pictures";
+        return view('main.device_pictures',compact('device','category','title'));
     }
     public function ajax_search($q){
         $q=trim($q);
@@ -126,6 +131,7 @@ class PageController extends Controller
             }
         }
         $sps=$sp;
-        return view('main.compare',compact('sps','device1','device2','device3'));
+        $title="compare";
+        return view('main.compare',compact('sps','device1','device2','device3','title'));
     }
 }

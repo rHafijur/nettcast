@@ -17,6 +17,7 @@ class ReviewController extends Controller
         $category=$device->category()->with(['brands'=>function($q){
             return $q->orderby('priority','asc')->limit(40);
         }])->firstOrFail();
+        $title=$review->title;
         return view("main.review",compact("review",'device','category'));
     }
 }

@@ -101,3 +101,9 @@
 <script src="{{asset('assets/js/color-thief.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
 @endpush
+
+@push('meta-data')
+<meta name="description" content="{{$review->meta_description}}" />
+<meta name="keywords" content="{{implode(',',json_decode($review->meta_keywords))}}" />
+<meta name="title" content="{{$review->meta_title}}" />
+@endpush

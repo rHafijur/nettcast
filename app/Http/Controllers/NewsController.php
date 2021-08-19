@@ -19,7 +19,8 @@ class NewsController extends Controller
         }else{
             $newsArticles=News::with('author')->withCount('comments')->latest()->paginate(12);
         }
-        return view('main.news',compact('newsArticles'));
+        $title='News';
+        return view('main.news',compact('newsArticles','title'));
     }
     public function details($slug){
         $news=News::where('slug',$slug)->with('author')->withCount('comments')->firstOrFail();
@@ -29,7 +30,8 @@ class NewsController extends Controller
         }
         $prevNews=News::find($news->id - 1);
         $nextNews=News::find($news->id + 1);
-        return view("main.single_news",compact("news","prevNews","nextNews"));
+        $title=$news->title;
+        return view("main.single_news",compact("news","prevNews","nextNews",'title'));
     }
     public function save_comment(Request $request){
         if($request->username){
